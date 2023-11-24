@@ -1,0 +1,37 @@
+{% extends "basic_app/base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="jumbotron">
+    {% if not loggedin %}
+        <h1>Login Here!</h1>
+        <h3>Enter your credentials:</h3>
+        <form method="post" action="{% url 'basic_app:login' %}">
+            {% csrf_token %}
+            {{ login_form }}            
+            <input type="submit" value="Login">
+        </form>
+    {% else %}
+        <h1>Thank you for logging in!</h1>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+
+<!--
+   
+
+<form method="post" action="{% url 'basic_app:login' %}">
+    {% csrf_token %}
+    <label for="username">username:</label>
+    <input type="text" name="username" placeholder="Enter username">
+
+    <label for="password">password:</label>
+    <input type="password" name="password">
+
+    <input type="submit" value="Login">
+
+</form>
+-->

@@ -1,0 +1,20 @@
+
+
+{% extends 'basic_app/base.html' %}
+
+{% load static %}
+
+{% block body_block %}
+
+  <h2>Welcome to special page, {{ user.username }}!</h2>
+
+  <div>
+    {% if created %}
+      <p>A new profile was created for you.</p>
+    {% endif %}
+    <h3>Your Profile Information:</h3>
+    <p><strong>Portfolio Site:</strong> <a href="{{ user_profile.portfolio_site }}" target="_blank">{{ user_profile.portfolio_site }}</a></p>
+    
+    
+  </div>
+{% endblock %}
